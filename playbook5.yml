@@ -1,0 +1,16 @@
+---
+- name: Fetch file form server1 to controller
+  hosts: 172.31.21.27
+  tasks:
+    - name: Fetch fill
+      fetch:
+        src: file1
+        dest: /tmp
+- name: Copy file from controller to server2
+  hosts: 172.31.18.224
+  tasks:
+    - name: Copy file
+      copy:
+       src: /tmp/172.31.21.27/file1
+       dest: /tmp
+...
